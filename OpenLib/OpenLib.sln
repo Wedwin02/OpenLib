@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenLib", "OpenLib.csproj", "{085F06A6-E5E6-457A-A714-200D3685CA64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager", "..\DataManager\DataManager.csproj", "{C7E66E1D-640F-4AAB-BB41-87E417779302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SessionManager", "..\SessionManager\SessionManager.csproj", "{0FCFE036-4150-4D71-9413-26FF901E297F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheManager", "..\CacheManager\CacheManager.csproj", "{3D4D0408-3333-4B99-821C-D2760C467619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "..\General\General.csproj", "{FADAD5B0-2200-4344-BA8A-7A72A3D21784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reporteria", "..\Reporteria\Reporteria.csproj", "{8843D877-CE36-4FB1-B945-DE3341AE67A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{085F06A6-E5E6-457A-A714-200D3685CA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085F06A6-E5E6-457A-A714-200D3685CA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085F06A6-E5E6-457A-A714-200D3685CA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085F06A6-E5E6-457A-A714-200D3685CA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E66E1D-640F-4AAB-BB41-87E417779302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E66E1D-640F-4AAB-BB41-87E417779302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E66E1D-640F-4AAB-BB41-87E417779302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E66E1D-640F-4AAB-BB41-87E417779302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FCFE036-4150-4D71-9413-26FF901E297F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FCFE036-4150-4D71-9413-26FF901E297F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FCFE036-4150-4D71-9413-26FF901E297F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FCFE036-4150-4D71-9413-26FF901E297F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4D0408-3333-4B99-821C-D2760C467619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4D0408-3333-4B99-821C-D2760C467619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4D0408-3333-4B99-821C-D2760C467619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4D0408-3333-4B99-821C-D2760C467619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADAD5B0-2200-4344-BA8A-7A72A3D21784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADAD5B0-2200-4344-BA8A-7A72A3D21784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADAD5B0-2200-4344-BA8A-7A72A3D21784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADAD5B0-2200-4344-BA8A-7A72A3D21784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8843D877-CE36-4FB1-B945-DE3341AE67A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8843D877-CE36-4FB1-B945-DE3341AE67A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8843D877-CE36-4FB1-B945-DE3341AE67A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8843D877-CE36-4FB1-B945-DE3341AE67A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3035D20-1168-47B0-9F7A-046CBF273034}
+	EndGlobalSection
+EndGlobal
