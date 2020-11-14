@@ -118,5 +118,15 @@ namespace OpenLib.GUI
                 CargarProcesos();
 			}
 		}
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
