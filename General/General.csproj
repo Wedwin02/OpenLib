@@ -271,5 +271,8 @@
   <ItemGroup>
     <None Include="Resources\regreso2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\Pedidos\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
