@@ -91,6 +91,18 @@
     <Compile Include="GUI\Productos\ProductosGestion.Designer.cs">
       <DependentUpon>ProductosGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresEdicion.Designer.cs">
+      <DependentUpon>ProveedoresEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresGestion.Designer.cs">
+      <DependentUpon>ProveedoresGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Recordatorios\RecordatorioGestiones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Productos\ProductosGestion.resx">
       <DependentUpon>ProductosGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Proveedores\ProveedoresEdicion.resx">
+      <DependentUpon>ProveedoresEdicion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Recordatorios\RecordatorioEdicion.resx">
       <DependentUpon>RecordatorioEdicion.cs</DependentUpon>
