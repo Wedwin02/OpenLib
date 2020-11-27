@@ -96,8 +96,7 @@
             this.txbClave.PasswordChar = '*';
             this.txbClave.Size = new System.Drawing.Size(263, 20);
             this.txbClave.TabIndex = 3;
-            this.txbClave.Text = "CONTRASEÑA";
-            this.txbClave.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txbClave.Text = "CONTRASEÑA";            
             this.txbClave.Enter += new System.EventHandler(this.txbClave_Enter);
             this.txbClave.Leave += new System.EventHandler(this.txbClave_Leave);
             // 

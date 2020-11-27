@@ -30,7 +30,7 @@ namespace DataManager
             return _Conectado;
         }
 
-        protected void Desconectar()
+        public void Desconectar()
         {
             try
             {

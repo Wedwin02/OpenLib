@@ -13,11 +13,11 @@ namespace SessionManager.CLS
         DataTable Permisos = new DataTable();
        
 
-        String _IDUsuario;
-        String _Usuario;
-        String _IDRol;
-        String _Rol;
-        String _NombreCompleto;
+        public String _IDUsuario;
+        public String _Usuario;
+        public String _IDRol;
+        public String _Rol;
+        public String _NombreCompleto;
         public String IDUsuario
         {
             get

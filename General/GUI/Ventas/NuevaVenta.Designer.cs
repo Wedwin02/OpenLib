@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevaVenta));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txbNRC = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txbNIT = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txbVendedor = new System.Windows.Forms.TextBox();
@@ -75,12 +80,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(649, 145);
+            this.panel1.Size = new System.Drawing.Size(649, 223);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.txbNRC);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txbNIT);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.lblFecha);
             this.groupBox1.Controls.Add(this.txbVendedor);
@@ -93,10 +103,66 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(159)))), ((int)(((byte)(134)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 127);
+            this.groupBox1.Size = new System.Drawing.Size(625, 202);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion de Venta";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.checkBox1.Location = new System.Drawing.Point(283, 132);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(126, 24);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "Credito Fiscal";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // txbNRC
+            // 
+            this.txbNRC.Enabled = false;
+            this.txbNRC.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNRC.Location = new System.Drawing.Point(88, 170);
+            this.txbNRC.Name = "txbNRC";
+            this.txbNRC.Size = new System.Drawing.Size(183, 26);
+            this.txbNRC.TabIndex = 23;
+            this.txbNRC.Leave += new System.EventHandler(this.txbNRC_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label6.Location = new System.Drawing.Point(6, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "NRC";
+            // 
+            // txbNIT
+            // 
+            this.txbNIT.Enabled = false;
+            this.txbNIT.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNIT.Location = new System.Drawing.Point(88, 132);
+            this.txbNIT.Name = "txbNIT";
+            this.txbNIT.Size = new System.Drawing.Size(183, 26);
+            this.txbNIT.TabIndex = 19;
+            this.txbNIT.Leave += new System.EventHandler(this.txbNIT_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.label4.Location = new System.Drawing.Point(6, 135);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 20);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "NIT";
             // 
             // button3
             // 
@@ -313,9 +379,9 @@
             // 
             this.panel3.Controls.Add(this.dtgDatos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 145);
+            this.panel3.Location = new System.Drawing.Point(0, 223);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(649, 234);
+            this.panel3.Size = new System.Drawing.Size(649, 156);
             this.panel3.TabIndex = 2;
             // 
             // dtgDatos
@@ -338,7 +404,7 @@
             this.dtgDatos.ReadOnly = true;
             this.dtgDatos.RowHeadersVisible = false;
             this.dtgDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgDatos.Size = new System.Drawing.Size(649, 234);
+            this.dtgDatos.Size = new System.Drawing.Size(649, 156);
             this.dtgDatos.TabIndex = 0;
             // 
             // IdProducto
@@ -444,5 +510,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.TextBox txbNIT;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txbNRC;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -25,6 +25,7 @@ namespace DataManager.CLS
             return EjecutarSentencia(pSentence);
         }
 
+       
         private Int32 EjecutarSentencia(String pSentencia)
         {
             Int32 FilasAfectadas = 0;
@@ -64,6 +65,7 @@ namespace DataManager.CLS
                     cmd.CommandText = pConsulta;
                     Adapter.SelectCommand = cmd;
                     Adapter.Fill(result);
+                  
                 }
             }
             catch
