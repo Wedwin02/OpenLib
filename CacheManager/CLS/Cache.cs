@@ -52,6 +52,25 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
+        public static DataTable All_Providers_Combo() 
+        {
+            DataTable Resultado = new DataTable();
+            String query;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+            try
+            {
+                query = @"select IDProveedore as id,NombreProveedor as value from proveedores order by NombreProveedor;";
+                Resultado = oConsulta.Consultar(query);
+
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+
+            return Resultado;
+        }
+
         public static DataTable Asignaciones_de_Permisos_Segun_IDRol(String pIDRol)
         {
             DataTable Resultado = new DataTable();
@@ -291,6 +310,23 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
+        public static DataTable DETAILS_PEDIDO_FOR_DISPLAY(int pedidoParameter) 
+        {
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+            try
+            {
+                Consulta = String.Format(@"select d.idDetalle,d.Cantidad, d.IDProducto, p.Nombre from detallespedidos d inner join productos p on d.IDProducto  = p.IDProducto where d.IDPedido = {0};", pedidoParameter);
+                Resultado = oConsulta.Consultar(Consulta);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Resultado;
+        }
+
         public static String COUNT_ACTIVE_RECORDATORIOS()
         {
             int count = 0;
@@ -329,6 +365,27 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
+        public static DataTable ALL_PEDIDOS_DISPLAY()
+        {
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {
+                Consulta = @"select p.IDPedido,date_format(p.FechaEmision,'%d/%m/%Y') as FechaEmision,date_format(p.FechaEntrega,'%d/%m/%Y') as FechaEstimada,p.Estado,p2.NombreProveedor,p2.CorreoElectronico,p.NumProductos 
+                            from pedidos p inner join proveedores p2 on P.IDProveedor = P2.IDProveedore;";
+                Resultado = oConsulta.Consultar(Consulta);
+            }
+            catch
+            {
+                //Informacion de error
+            }
+            return Resultado;
+        }
+
+
+
         public static String TODAY_SALES()
         {
             decimal count = 0;
@@ -349,6 +406,49 @@ namespace CacheManager.CLS
             return count.ToString();
         }
 
+        public static Boolean ChangeStatusPedido(int idPedido,String estadoUpdate)
+        {
+            Boolean estado = false;
+            String Consulta = "";
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+            try
+            {
+                Consulta = String.Format("update pedidos set Estado = '{0}' where IDPedido = {1};",estadoUpdate,idPedido);
+                int rowModific = oConsulta.Actualizar(Consulta);
+
+                if (rowModific > 0) {
+                    estado = true;
+                }
+            }catch
+            {
+                estado = false;
+            }
+
+            return estado;
+        }
+
+        public static Boolean UPDATE_TOTAL_NUM_PEDIDOS(int idPedido,int newCantidad)
+        {
+            Boolean estado = false;
+            String Consulta = "";
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+            try
+            {
+                Consulta = String.Format("update pedidos set NumProductos = {0} where IDPedido = {1};", newCantidad, idPedido);
+                int rowModific = oConsulta.Actualizar(Consulta);
+
+                if (rowModific > 0)
+                {
+                    estado = true;
+                }
+            }
+            catch
+            {
+                estado = false;
+            }
+
+            return estado;
+        }
         public static DataTable Permisos_De_un_Rol(String pIDRol)
         {
             DataTable Resultado = new DataTable();
@@ -371,5 +471,7 @@ namespace CacheManager.CLS
             }
             return Resultado;
         }
+
+
     }
 }

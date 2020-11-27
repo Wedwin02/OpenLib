@@ -77,7 +77,7 @@ namespace General.GUI.Ventas
 
         private void button3_Click(object sender, EventArgs e)
         {
-                BusquedaProducto b = new BusquedaProducto();
+                BusquedaProducto b = new BusquedaProducto(true);
             
             b.contrato = this;
             b.setListCompras(this.listBuffer);
