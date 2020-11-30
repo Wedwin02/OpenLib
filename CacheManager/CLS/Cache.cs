@@ -32,26 +32,7 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
-        public static DataTable Alertas_Pedidos()
-        {
-            DataTable Resultado = new DataTable();
-            String Consulta;
-            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
-
-            try
-            {
-                Consulta = @"SELECT p.Descripcion,p.MontoTotal,DATE_FORMAT(p.FechaEntrega,'%d/%m/%Y') as Fecha,v.NEmpresa as Empresa FROM  pedidos p, proveedores v WHERE p.IDProveedor=v.IDProveedore;";
-
-
-                Resultado = oConsulta.Consultar(Consulta);
-
-            }
-            catch (Exception)
-            {
-                Resultado = new DataTable();
-            }
-            return Resultado;
-        }
+   
 
 
 
@@ -387,6 +368,48 @@ namespace CacheManager.CLS
                 Consulta = @"SELECT a.IDPermiso, a.IDOpcion, 
                             (SELECT b.Opcion FROM Opciones b WHERE b.IDOpcion= a.IDOpcion) as 'Opciones',
                             a.IDRol FROM permisos a WHERE IDROl ="+ pIDRol + ";";
+                Resultado = oConsulta.Consultar(Consulta);
+
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public static DataTable Alertas_Pedidos()
+        {
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {
+                Consulta = @"SELECT p.Descripcion,p.MontoTotal,DATE_FORMAT(p.FechaEntrega,'%d/%m/%Y') as Fecha,v.NEmpresa as Empresa FROM  pedidos p, proveedores v WHERE p.IDProveedor=v.IDProveedore;";
+
+
                 Resultado = oConsulta.Consultar(Consulta);
 
             }
