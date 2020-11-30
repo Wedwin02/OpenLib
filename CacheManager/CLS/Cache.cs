@@ -472,6 +472,24 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
+        public static DataTable Todos_Los_Proveedores()
+        {
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
 
+            try
+            {
+                Consulta = @"SELECT IDProveedore, NombreProveedor, Direccion, Telefono, CorreoElectronico from proveedores  WHERE estado_campo=true;";
+
+                Resultado = oConsulta.Consultar(Consulta);
+
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
     }
 }

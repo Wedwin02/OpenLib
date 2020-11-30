@@ -53,6 +53,7 @@
     <Compile Include="CLS\Pedido.cs" />
     <Compile Include="CLS\Permisos.cs" />
     <Compile Include="CLS\Productos.cs" />
+    <Compile Include="CLS\Proveedores.cs" />
     <Compile Include="CLS\Recordatorios.cs" />
     <Compile Include="CLS\Roles.cs" />
     <Compile Include="CLS\Usuarios.cs" />
@@ -118,17 +119,17 @@
     <Compile Include="GUI\Productos\ProductosGestion.Designer.cs">
       <DependentUpon>ProductosGestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Proveedores\ProveedoresEdicion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Proveedores\ProveedoresEdicion.Designer.cs">
-      <DependentUpon>ProveedoresEdicion.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Proveedores\ProveedoresGestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Proveedores\ProveedoresGestion.Designer.cs">
       <DependentUpon>ProveedoresGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Proveedores\ProveedoresEdicion.Designer.cs">
+      <DependentUpon>ProveedoresEdicion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Recordatorios\RecordatorioGestiones.cs">
       <SubType>Form</SubType>
@@ -244,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Proveedores\ProveedoresEdicion.resx">
       <DependentUpon>ProveedoresEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Proveedores\ProveedoresGestion.resx">
+      <DependentUpon>ProveedoresGestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Recordatorios\RecordatorioEdicion.resx">
       <DependentUpon>RecordatorioEdicion.cs</DependentUpon>
