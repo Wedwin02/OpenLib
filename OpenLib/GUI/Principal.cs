@@ -118,5 +118,20 @@ namespace OpenLib.GUI
                 CargarProcesos();
 			}
 		}
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            if (_Seccion.Informacion.VerificarPermiso(3))
+            {
+                General.GUI.Proveedores.ProveedoresGestion F = new General.GUI.Proveedores.ProveedoresGestion();
+                F.ShowDialog();
+                
+            }
+        }
+
+        private void btnPedidos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
