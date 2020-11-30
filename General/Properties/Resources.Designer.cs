@@ -143,6 +143,14 @@ namespace General.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+
+        internal static System.Drawing.Bitmap floppy_disk {
+            get {
+                object obj = ResourceManager.GetObject("floppy-disk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }                
+
         internal static System.Drawing.Bitmap icons8_alarm_45px {
             get {
                 object obj = ResourceManager.GetObject("icons8_alarm_45px", resourceCulture);
@@ -202,6 +210,37 @@ namespace General.Properties {
         
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_opcion {
+            get {
+                object obj = ResourceManager.GetObject("send-opcion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_pedido {
+            get {
+                object obj = ResourceManager.GetObject("send-pedido", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_pedido_redi {
+            get {
+                object obj = ResourceManager.GetObject("send-pedido-redi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+
         /// </summary>
         internal static System.Drawing.Bitmap upload {
             get {
