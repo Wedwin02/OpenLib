@@ -51,6 +51,7 @@
     <Compile Include="CLS\Opciones.cs" />
     <Compile Include="CLS\Permisos.cs" />
     <Compile Include="CLS\Productos.cs" />
+    <Compile Include="CLS\Proveedores.cs" />
     <Compile Include="CLS\Recordatorios.cs" />
     <Compile Include="CLS\Roles.cs" />
     <Compile Include="CLS\Usuarios.cs" />
