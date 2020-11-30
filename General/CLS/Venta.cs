@@ -17,6 +17,8 @@ namespace General.CLS
         private String _TotalDescuento;
         private String _IDVendedor;
         private String _SubTotal;
+        private String _NIT;
+        private String _NRC;
 
         public int IdVenta { get => _IdVenta; set => _IdVenta = value; }
         public string FechaEmision { get => _FechaEmision; set => _FechaEmision = value; }
@@ -25,7 +27,8 @@ namespace General.CLS
         public string TotalDescuento { get => _TotalDescuento; set => _TotalDescuento = value; }
         public string IDVendedor { get => _IDVendedor; set => _IDVendedor = value; }
         public string SubTotal { get => _SubTotal; set => _SubTotal = value; }
-
+        public string NIT { get => _NIT; set => _NIT = value; }
+        public string NRC { get => _NRC; set => _NRC = value; }
         public int Guardar()
         {
             DataTable Resultado = new DataTable();
@@ -35,14 +38,52 @@ namespace General.CLS
             DataManager.CLS.DBOperacion _Operacion = new DataManager.CLS.DBOperacion();
 
             try
-            {
-                sentencia = "INSERT INTO ventas(FechaEmision,Cliente,TotalVenta,SubTotal,TotalDescuento,IDVendedor) values (";
-                sentencia += "'"+ _FechaEmision + "',";
-                sentencia += "'" + _Cliente + "',";
-                sentencia += _TotalVenta + ",";
-                sentencia += _SubTotal + ",";
-                sentencia += _TotalDescuento + ",";
-                sentencia += _IDVendedor + ");";
+            { 
+                if(_NIT.Length > 0 && _NRC.Length > 0)
+                {
+                    sentencia = "INSERT INTO ventas(FechaEmision,Cliente,TotalVenta,SubTotal,TotalDescuento,IDVendedor,NIT,NRC) values (";
+                    sentencia += "'" + _FechaEmision + "',";
+                    sentencia += "'" + _Cliente + "',";
+                    sentencia += _TotalVenta + ",";
+                    sentencia += _SubTotal + ",";
+                    sentencia += _TotalDescuento + ",";
+                    sentencia += _IDVendedor + ",";
+                    sentencia += "'" + _NIT + "' ,";
+                    sentencia += "'" + _NRC + "' );";
+                }
+                else if(_NIT.Length>0 || _NRC.Length<0)
+                {
+                    sentencia = "INSERT INTO ventas(FechaEmision,Cliente,TotalVenta,SubTotal,TotalDescuento,IDVendedor,NIT ) values (";
+                    sentencia += "'" + _FechaEmision + "',";
+                    sentencia += "'" + _Cliente + "',";
+                    sentencia += _TotalVenta + ",";
+                    sentencia += _SubTotal + ",";
+                    sentencia += _TotalDescuento + ",";
+                    sentencia += _IDVendedor + ",";                   
+                    sentencia += "'" + _NIT + "' );";
+
+                }else if(_NIT.Length < 0 || _NRC.Length > 0)
+                {
+                    sentencia = "INSERT INTO ventas(FechaEmision,Cliente,TotalVenta,SubTotal,TotalDescuento,IDVendedor,NRC) values (";
+                    sentencia += "'" + _FechaEmision + "',";
+                    sentencia += "'" + _Cliente + "',";
+                    sentencia += _TotalVenta + ",";
+                    sentencia += _SubTotal + ",";
+                    sentencia += _TotalDescuento + ",";
+                    sentencia += _IDVendedor + ",";
+                    sentencia += "'" + _NRC + "' );";
+                }
+                else
+                {
+                    sentencia = "INSERT INTO ventas(FechaEmision,Cliente,TotalVenta,SubTotal,TotalDescuento,IDVendedor) values (";
+                    sentencia += "'" + _FechaEmision + "',";
+                    sentencia += "'" + _Cliente + "',";
+                    sentencia += _TotalVenta + ",";
+                    sentencia += _SubTotal + ",";
+                    sentencia += _TotalDescuento + ",";                  
+                    sentencia += _IDVendedor + ");";
+                }
+                
 
                 if (_Operacion.Insertar(sentencia) > 0)
                 {

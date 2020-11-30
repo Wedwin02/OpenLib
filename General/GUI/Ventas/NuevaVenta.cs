@@ -19,6 +19,40 @@ namespace General.GUI.Ventas
 
         SessionManager.CLS.Sesion _Seccion = SessionManager.CLS.Sesion.Instancia;
 
+
+
+
+        public void tamañoNIT()
+        {
+            if(txbNIT.TextLength > 17)
+            {
+                MessageBox.Show("El campo no puede tener mas de 17 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbNIT.Focus();
+            }else if (txbNIT.TextLength < 17)
+            {
+                MessageBox.Show("El campo no puede tener menos de 17 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbNIT.Focus();
+
+            }
+        }
+
+
+        public  void tamañoNRC()
+        {
+            if (txbNRC.TextLength > 7)
+            {
+                MessageBox.Show("El campo no puede tener mas de 7 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbNRC.Focus();
+            }
+            else if (txbNRC.TextLength < 7)
+            {
+                MessageBox.Show("El campo no puede tener menos de 7 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbNRC.Focus();
+
+            }
+        }
+
+
         public NuevaVenta()
         {
             InitializeComponent();
@@ -144,6 +178,8 @@ namespace General.GUI.Ventas
                 v.TotalDescuento = desc.ToString();
                 v.SubTotal = subTotalFac.ToString();
                 v.IDVendedor = _Seccion.Informacion.IDUsuario;
+                v.NIT = this.txbNIT.Text;
+                v.NRC = this.txbNRC.Text;
 
                 idVenta = v.Guardar();
 
@@ -168,11 +204,42 @@ namespace General.GUI.Ventas
                 }
                 else
                 {
-                    MessageBox.Show("No se realizo la venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se realizo la venta ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 this.Close();
             }
 
+        }
+
+
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                txbNIT.Enabled = true;
+                txbNRC.Enabled = true;
+            }
+            else
+            {
+                txbNIT.Enabled = false;
+                txbNRC.Enabled = false;
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbNIT_Leave(object sender, EventArgs e)
+        {
+            tamañoNIT();
+        }
+
+        private void txbNRC_Leave(object sender, EventArgs e)
+        {
+            tamañoNRC();
         }
     }
 }

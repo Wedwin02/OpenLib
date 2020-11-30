@@ -12,7 +12,7 @@ namespace SessionManager.CLS
         private Datos _Informacion;
         private static readonly object padlock = new object();
 
-        private Sesion()
+        public Sesion()
         {
             _Informacion = new Datos();
 

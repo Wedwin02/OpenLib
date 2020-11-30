@@ -31,6 +31,12 @@ namespace CacheManager.CLS
             }
             return Resultado;
         }
+
+   
+
+
+
+
         public static DataTable Todos_Los_Roles()
         {
             DataTable Resultado = new DataTable();
@@ -262,7 +268,7 @@ namespace CacheManager.CLS
             try
             {
                 Consulta = String.Format(@"SELECT v.Cliente,CONCAT(e.Nombres,' ',e.Apellidos) AS strVendedor, DATE_FORMAT(v.FechaEmision,'%d/%m/%Y') as strFecha,
-                                                                v.TotalVenta, v.TotalDescuento, v.SubTotal from ventas V INNER JOIN Usuarios u ON u.IDUsuario = v.IDVendedor
+                                                                v.TotalVenta, v.TotalDescuento, v.SubTotal, v.NIT, v.NRC from ventas v INNER JOIN Usuarios u ON u.IDUsuario = v.IDVendedor
                                                                 INNER JOIN Empleados e ON e.DUI = u.IDEmpleado WHERE v.IDVenta = {0};", id);
                 Resultado = oConsulta.Consultar(Consulta);
             }
@@ -472,6 +478,7 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
+
         public static DataTable Todos_Los_Proveedores()
         {
             DataTable Resultado = new DataTable();
@@ -480,8 +487,25 @@ namespace CacheManager.CLS
 
             try
             {
-                Consulta = @"SELECT IDProveedore, NombreProveedor, Direccion, Telefono, CorreoElectronico from proveedores  WHERE estado_campo=true;";
+               Consulta = @"SELECT IDProveedore, NombreProveedor, Direccion, Telefono, CorreoElectronico from proveedores  WHERE estado_campo=true;";
+               Resultado = oConsulta.Consultar(Consulta);
+            }
+            catch (Exception)
+            {
+                Resultado = new DataTable();
+            }
+            return Resultado;
+        }
 
+        public static DataTable Alertas_Pedidos()
+          {
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {  
+                Consulta = @"SELECT p.Descripcion,p.MontoTotal,DATE_FORMAT(p.FechaEntrega,'%d/%m/%Y') as Fecha,v.NEmpresa as Empresa FROM  pedidos p, proveedores v WHERE p.IDProveedor=v.IDProveedore;";
                 Resultado = oConsulta.Consultar(Consulta);
 
             }

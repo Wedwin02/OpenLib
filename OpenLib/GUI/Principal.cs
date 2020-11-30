@@ -9,21 +9,95 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace OpenLib.GUI
 {
     public partial class Principal : Form
     {
         SessionManager.CLS.Sesion _Seccion = SessionManager.CLS.Sesion.Instancia;
+        public String descripcion;
+        public String monto;
+        public String fechaEntrega;
+        public String empresa;
+        public String cadena = " ";
+        public int contador = 0;
+        public String date = DateTime.Today.ToString("dd/MM/yyyy");
 
 
-        
+        public void Alerta()
+        {
+            DataTable _Alerta = new DataTable();
+            _Alerta = CacheManager.CLS.Cache.Alertas_Pedidos();        
 
+            for (int i = 0; i< _Alerta.Rows.Count; i++)            
+            {
+
+                this.descripcion = _Alerta.Rows[i]["Descripcion"].ToString();
+                this.monto = _Alerta.Rows[i]["MontoTotal"].ToString();
+                this.fechaEntrega = _Alerta.Rows[i]["Fecha"].ToString();
+                this.empresa = _Alerta.Rows[i]["Empresa"].ToString();
+
+               // if(date.ToString().Trim() == fechaEntrega.ToString().Trim())
+              //  {
+                    this.cadena += "Descripcion de la compra hecha: " + descripcion + " Por un monto de $: " + monto + " de la empresa: " + empresa + Environment.NewLine; ;
+               // }              
+               
+            }
+            if (ValidarDiaAlerta())
+            {
+                //if(cadena.Length <= 0) { 
+                PopupNotifier popup = new PopupNotifier();
+                popup.Image = Properties.Resources.icons8_notification_45px;
+                popup.TitleText = "RECORDATORIOS " + date;                
+                popup.ContentText = this.cadena;                
+                popup.TitlePadding = new Padding(3);
+                popup.ContentPadding = new Padding(3);
+                popup.ContentFont = new Font("Tahoma", 10F);
+                popup.HeaderColor = Color.FromArgb(252, 164, 2);
+                popup.BorderColor = Color.FromArgb(252, 164, 2);
+                popup.ShowGrip = false;                
+                popup.AnimationDuration = 1000;
+                popup.AnimationInterval = 1;
+                popup.HeaderHeight = 15;
+                popup.Size = new Size(600,300);
+                popup.Popup();
+              //  }
+
+            }
+
+
+        }
+
+       public Boolean ValidarDiaAlerta()
+        {
+            Boolean respuesta =true;
+            
+
+            
+            String a = "Admin";
+
+            if(_Seccion.Informacion.Rol.ToString().Equals(a))
+            {
+                respuesta = true;
+            }
+            else
+            {
+                respuesta = false;
+            }
+
+
+            return respuesta;
+
+        }
 
         public Principal()
         {
             InitializeComponent();
-        }       
+        
+
+
+        }  
 
         private void btnGestionEmpleados_Click(object sender, EventArgs e)
         {
@@ -44,13 +118,14 @@ namespace OpenLib.GUI
                 f.ShowDialog();
             }
         }
-
+      
         private void Principal_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = _Seccion.Informacion.Usuario;
             lblRol.Text = _Seccion.Informacion.Rol;
 
             CargarProcesos();
+            this.Alerta();
         }
 
         private void CargarProcesos()
@@ -77,11 +152,7 @@ namespace OpenLib.GUI
             }
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+   
         private void button5_Click(object sender, EventArgs e)
         {
             NuevaVenta n = new NuevaVenta();
@@ -133,6 +204,12 @@ namespace OpenLib.GUI
         {
             General.GUI.Pedidos.PedidosEdicion frmPedidos = new General.GUI.Pedidos.PedidosEdicion();
             frmPedidos.ShowDialog();
+        }
+        private void btnCerrarSession(object sender, EventArgs e)
+        {
+                     
+            Close();
+            
         }
     }
 }
