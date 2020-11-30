@@ -131,7 +131,8 @@ namespace OpenLib.GUI
 
         private void btnPedidos_Click(object sender, EventArgs e)
         {
-
+            General.GUI.Pedidos.PedidosEdicion frmPedidos = new General.GUI.Pedidos.PedidosEdicion();
+            frmPedidos.ShowDialog();
         }
     }
 }

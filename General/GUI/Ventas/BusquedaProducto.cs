@@ -21,6 +21,7 @@ namespace General.GUI.Ventas
         private Contrato _contrato;
         private BindingSource _DATOS = new BindingSource();
         private List<BufferStock> _listCompras;
+        private Boolean isSale = true; //Verifica si es venta 
 
         public Contrato contrato { get => _contrato; set => _contrato = value; }
 
@@ -55,35 +56,58 @@ namespace General.GUI.Ventas
         }
 
        
-        public BusquedaProducto()
+        public BusquedaProducto(Boolean isVenta = true)
         {
+            this.isSale = isVenta;
+
             InitializeComponent();
             CargarDatos();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DetalleVenta dt = new DetalleVenta();
-            BufferStock buf = new BufferStock();
-            
-            dt.Cantidad = txbCantidad.Text;
-            dt.SubTotal = txbSubTotal.Text;
-            //Aqui hay que validar si esta selecionada una row 
-            dt.IdProducto = dtgDatos.CurrentRow.Cells["Id"].Value.ToString();
-            dt.Nombre = dtgDatos.CurrentRow.Cells["Nombre"].Value.ToString();
-            dt.Precio = dtgDatos.CurrentRow.Cells["PrecioVenta"].Value.ToString();
-            dt.Descuento = txbDescuento.Text;
+            //Verificar si es una venta 
+            if (txbCantidad.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("La Cantidad no es valida", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            contrato.addDetalle(dt);
 
-            buf.Index = dtgDatos.CurrentRow.Index.ToString();
-            buf.Count = txbCantidad.Text;
+            if (this.isSale)
+            {
+                DetalleVenta dt = new DetalleVenta();
+                BufferStock buf = new BufferStock();
 
-            int currentStock = Convert.ToInt32(dtgDatos.CurrentRow.Cells["Stock"].Value);
-            int subtrac = Convert.ToInt32(buf.Count);
-            dtgDatos.CurrentRow.Cells["Stock"].Value = (currentStock - subtrac);
-            contrato.addBufferStock(buf);
-            verificarStock();
+                dt.Cantidad = txbCantidad.Text;
+                dt.SubTotal = txbSubTotal.Text;
+                //Aqui hay que validar si esta selecionada una row 
+                dt.IdProducto = dtgDatos.CurrentRow.Cells["Id"].Value.ToString();
+                dt.Nombre = dtgDatos.CurrentRow.Cells["Nombre"].Value.ToString();
+                dt.Precio = dtgDatos.CurrentRow.Cells["PrecioVenta"].Value.ToString();
+                dt.Descuento = txbDescuento.Text;
+
+                contrato.addDetalle(dt);
+
+                buf.Index = dtgDatos.CurrentRow.Index.ToString();
+                buf.Count = txbCantidad.Text;
+
+                int currentStock = Convert.ToInt32(dtgDatos.CurrentRow.Cells["Stock"].Value);
+                int subtrac = Convert.ToInt32(buf.Count);
+                dtgDatos.CurrentRow.Cells["Stock"].Value = (currentStock - subtrac);
+                contrato.addBufferStock(buf);
+                verificarStock();
+            }
+            else //Si no es una venta es un pedido 
+            {
+                DetalleVenta dt = new DetalleVenta();
+                dt.Cantidad = txbCantidad.Text;
+                dt.IdProducto = dtgDatos.CurrentRow.Cells["Id"].Value.ToString();
+                dt.Nombre = dtgDatos.CurrentRow.Cells["Nombre"].Value.ToString();
+
+                contrato.addDetalle(dt);
+            }
+
         }
 
         private void CalculosSelected()
@@ -131,11 +155,23 @@ namespace General.GUI.Ventas
             {
                 this.txbDescuento.Text = "0.0";
                 this.txbCantidad.Text = "1";
-                if (verificarStock())
+
+
+                if(isSale)
+                {
+                    if (verificarStock())
+                    {
+                        this.txbCantidad.Text = "1";
+                        this.txbSubTotal.Text = dtgDatos.CurrentRow.Cells["PrecioVenta"].Value.ToString();
+                    }
+                }else if(! isSale)
                 {
                     this.txbCantidad.Text = "1";
                     this.txbSubTotal.Text = dtgDatos.CurrentRow.Cells["PrecioVenta"].Value.ToString();
                 }
+
+
+
 
                 String archivo = dtgDatos.CurrentRow.Cells["idArchivo"].Value.ToString();
                 if (!archivo.Equals("")) {
@@ -175,12 +211,21 @@ namespace General.GUI.Ventas
 
         private void BusquedaProducto_Load(object sender, EventArgs e)
         {
-            ResetExistencias();
-            if (dtgDatos.SelectedRows.Count > 0)
+            if(isSale)
             {
+                ResetExistencias();
+                if (dtgDatos.SelectedRows.Count > 0)
+                {
+                    this.txbCantidad.Text = "1";
+                    this.btnAgregar.Enabled = true;
+                    verificarStock();
+                }
+            }else
+            {
+                this.txbDescuento.Visible = false;
+                this.lblDisplayDesc.Visible = false;
                 this.txbCantidad.Text = "1";
                 this.btnAgregar.Enabled = true;
-                verificarStock();
             }
         }
 

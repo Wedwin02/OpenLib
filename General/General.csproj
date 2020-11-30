@@ -46,9 +46,11 @@
     <Compile Include="CLS\Archivos.cs" />
     <Compile Include="CLS\CategoriaOpciones.cs" />
     <Compile Include="CLS\Categorias.cs" />
+    <Compile Include="CLS\DetallePedido.cs" />
     <Compile Include="CLS\DetalleVenta.cs" />
     <Compile Include="CLS\Empleados.cs" />
     <Compile Include="CLS\Opciones.cs" />
+    <Compile Include="CLS\Pedido.cs" />
     <Compile Include="CLS\Permisos.cs" />
     <Compile Include="CLS\Productos.cs" />
     <Compile Include="CLS\Proveedores.cs" />
@@ -79,6 +81,31 @@
     </Compile>
     <Compile Include="GUI\Empleados\EmpleadosGestion.Designer.cs">
       <DependentUpon>EmpleadosGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pedidos\ContratoUserForm.cs" />
+    <Compile Include="GUI\Pedidos\ItemPedido.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Pedidos\ItemPedido.Designer.cs">
+      <DependentUpon>ItemPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosCreate.Designer.cs">
+      <DependentUpon>PedidosCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosEdicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosEdicion.Designer.cs">
+      <DependentUpon>PedidosEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pedidos\PedidosGestion.Designer.cs">
+      <DependentUpon>PedidosGestion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Productos\ProductosEdicion.cs">
       <SubType>Form</SubType>
@@ -198,6 +225,18 @@
     <EmbeddedResource Include="GUI\Empleados\EmpleadosGestion.resx">
       <DependentUpon>EmpleadosGestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pedidos\ItemPedido.resx">
+      <DependentUpon>ItemPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pedidos\PedidosCreate.resx">
+      <DependentUpon>PedidosCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pedidos\PedidosEdicion.resx">
+      <DependentUpon>PedidosEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pedidos\PedidosGestion.resx">
+      <DependentUpon>PedidosGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Productos\ProductosEdicion.resx">
       <DependentUpon>ProductosEdicion.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,7 +315,16 @@
     <None Include="Resources\regreso2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GUI\Pedidos\" />
+    <None Include="Resources\send-pedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-pedido-redi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-opcion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\floppy-disk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

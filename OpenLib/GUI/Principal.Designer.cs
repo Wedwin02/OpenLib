@@ -33,6 +33,8 @@
             this.lblRol = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPedidos = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnGestionEmpleados = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.btnProveedores = new System.Windows.Forms.Button();
-            this.btnPedidos = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -119,16 +119,54 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(292, 708);
             this.panel1.TabIndex = 16;
+            // 
+            // btnPedidos
+            // 
+            this.btnPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPedidos.FlatAppearance.BorderSize = 0;
+            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPedidos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidos.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnPedidos.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
+            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPedidos.Location = new System.Drawing.Point(16, 341);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(267, 49);
+            this.btnPedidos.TabIndex = 21;
+            this.btnPedidos.Text = "          Pedidos";
+            this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPedidos.UseVisualStyleBackColor = true;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnProveedores.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
+            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.Location = new System.Drawing.Point(16, 279);
+            this.btnProveedores.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(267, 49);
+            this.btnProveedores.TabIndex = 20;
+            this.btnProveedores.Text = "          Proveedores";
+            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::OpenLib.Properties.Resources.Logo___Presentacion_2_Transparente;
             this.pictureBox1.Location = new System.Drawing.Point(0, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(292, 134);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +183,7 @@
             this.button2.Image = global::OpenLib.Properties.Resources.tablero;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(16, 589);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(267, 49);
             this.button2.TabIndex = 18;
@@ -164,7 +202,7 @@
             this.btnGestionEmpleados.Image = global::OpenLib.Properties.Resources.pnlEmpleados;
             this.btnGestionEmpleados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestionEmpleados.Location = new System.Drawing.Point(16, 527);
-            this.btnGestionEmpleados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionEmpleados.Name = "btnGestionEmpleados";
             this.btnGestionEmpleados.Size = new System.Drawing.Size(267, 49);
             this.btnGestionEmpleados.TabIndex = 2;
@@ -183,7 +221,7 @@
             this.btnProductos.Image = global::OpenLib.Properties.Resources.pnlProductos;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProductos.Location = new System.Drawing.Point(16, 155);
-            this.btnProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(267, 49);
             this.btnProductos.TabIndex = 10;
@@ -202,7 +240,7 @@
             this.btnGestionRoles.Image = global::OpenLib.Properties.Resources.pblRoles;
             this.btnGestionRoles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGestionRoles.Location = new System.Drawing.Point(16, 651);
-            this.btnGestionRoles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionRoles.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionRoles.Name = "btnGestionRoles";
             this.btnGestionRoles.Size = new System.Drawing.Size(267, 49);
             this.btnGestionRoles.TabIndex = 5;
@@ -221,7 +259,7 @@
             this.btnRecordatorio.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
             this.btnRecordatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRecordatorio.Location = new System.Drawing.Point(16, 403);
-            this.btnRecordatorio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRecordatorio.Margin = new System.Windows.Forms.Padding(4);
             this.btnRecordatorio.Name = "btnRecordatorio";
             this.btnRecordatorio.Size = new System.Drawing.Size(267, 49);
             this.btnRecordatorio.TabIndex = 14;
@@ -240,7 +278,7 @@
             this.button1.Image = global::OpenLib.Properties.Resources.pnlSales;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(16, 465);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(267, 49);
             this.button1.TabIndex = 7;
@@ -259,7 +297,7 @@
             this.button3.Image = global::OpenLib.Properties.Resources.pnlCategorias;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(16, 217);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(267, 49);
             this.button3.TabIndex = 12;
@@ -280,7 +318,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(292, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
             this.tableLayoutPanel1.RowCount = 1;
@@ -296,7 +334,7 @@
             this.panel2.Controls.Add(this.lblTodaySales);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(17, 16);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(335, 142);
             this.panel2.TabIndex = 0;
@@ -319,7 +357,7 @@
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox2.Image = global::OpenLib.Properties.Resources.minMoney;
             this.pictureBox2.Location = new System.Drawing.Point(224, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(111, 88);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -347,7 +385,7 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(360, 16);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(335, 142);
             this.panel3.TabIndex = 1;
@@ -370,7 +408,7 @@
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox3.Image = global::OpenLib.Properties.Resources.minPedidos;
             this.pictureBox3.Location = new System.Drawing.Point(224, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(111, 88);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -398,7 +436,7 @@
             this.panel4.Controls.Add(this.lblActividades);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(703, 16);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(336, 142);
             this.panel4.TabIndex = 2;
@@ -408,7 +446,7 @@
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox4.Image = global::OpenLib.Properties.Resources.minRecordatorios;
             this.pictureBox4.Location = new System.Drawing.Point(225, 0);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(111, 88);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -451,7 +489,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button5, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(292, 174);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
@@ -466,7 +504,7 @@
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBox5.Image = global::OpenLib.Properties.Resources.Main3;
             this.pictureBox5.Location = new System.Drawing.Point(373, 119);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(308, 90);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -483,7 +521,7 @@
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.MidnightBlue;
             this.button5.Location = new System.Drawing.Point(373, 217);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(308, 46);
             this.button5.TabIndex = 1;
@@ -491,44 +529,6 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProveedores.FlatAppearance.BorderSize = 0;
-            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedores.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnProveedores.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
-            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(16, 279);
-            this.btnProveedores.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Size = new System.Drawing.Size(267, 49);
-            this.btnProveedores.TabIndex = 20;
-            this.btnProveedores.Text = "          Proveedores";
-            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
-            // 
-            // btnPedidos
-            // 
-            this.btnPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPedidos.FlatAppearance.BorderSize = 0;
-            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPedidos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPedidos.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnPedidos.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
-            this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.Location = new System.Drawing.Point(16, 341);
-            this.btnPedidos.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Size = new System.Drawing.Size(267, 49);
-            this.btnPedidos.TabIndex = 21;
-            this.btnPedidos.Text = "          Pedidos";
-            this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPedidos.UseVisualStyleBackColor = true;
-            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // Principal
             // 
@@ -541,7 +541,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
