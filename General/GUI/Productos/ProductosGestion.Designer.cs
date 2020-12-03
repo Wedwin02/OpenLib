@@ -60,7 +60,7 @@
             // 
             this.dtgProductos.AllowUserToAddRows = false;
             this.dtgProductos.AllowUserToDeleteRows = false;
-            this.dtgProductos.AllowUserToResizeColumns = false;
+            this.dtgProductos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.dtgProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgProductos.BackgroundColor = System.Drawing.Color.WhiteSmoke;

@@ -153,7 +153,7 @@
             // 
             this.dtgProveedores.AllowUserToAddRows = false;
             this.dtgProveedores.AllowUserToDeleteRows = false;
-            this.dtgProveedores.AllowUserToResizeColumns = false;
+            this.dtgProveedores.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.dtgProveedores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgProveedores.BackgroundColor = System.Drawing.Color.WhiteSmoke;
@@ -201,7 +201,7 @@
             this.NombreProveedor.DataPropertyName = "NombreProveedor";
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.NombreProveedor.DefaultCellStyle = dataGridViewCellStyle2;
-            this.NombreProveedor.HeaderText = "NombreProveedor";
+            this.NombreProveedor.HeaderText = "Nombre";
             this.NombreProveedor.Name = "NombreProveedor";
             this.NombreProveedor.ReadOnly = true;
             // 
@@ -210,7 +210,7 @@
             this.Telefono.DataPropertyName = "Telefono";
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             this.Telefono.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.HeaderText = "Teléfono";
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
             this.Telefono.Width = 80;
@@ -220,7 +220,7 @@
             this.CorreoElectronico.DataPropertyName = "CorreoElectronico";
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             this.CorreoElectronico.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CorreoElectronico.HeaderText = "CorreoElectronico";
+            this.CorreoElectronico.HeaderText = "Correo electrónico";
             this.CorreoElectronico.Name = "CorreoElectronico";
             this.CorreoElectronico.ReadOnly = true;
             this.CorreoElectronico.Width = 200;
@@ -230,7 +230,7 @@
             this.Direccion.DataPropertyName = "Direccion";
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.Direccion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.HeaderText = "Dirección";
             this.Direccion.Name = "Direccion";
             this.Direccion.ReadOnly = true;
             this.Direccion.Width = 300;
@@ -268,12 +268,12 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.DataGridView dtgProveedores;
         private System.Windows.Forms.ToolStripStatusLabel lblRegistros;
+        private System.Windows.Forms.ToolStripTextBox txbFiltro;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDProveedore;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
-        private System.Windows.Forms.ToolStripTextBox txbFiltro;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }

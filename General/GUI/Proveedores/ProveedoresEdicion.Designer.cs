@@ -77,9 +77,9 @@
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.lblNombre.Location = new System.Drawing.Point(27, 102);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(172, 20);
+            this.lblNombre.Size = new System.Drawing.Size(176, 20);
             this.lblNombre.TabIndex = 24;
-            this.lblNombre.Text = "Nombre de empleado";
+            this.lblNombre.Text = "Nombre de proveedor";
             // 
             // label1
             // 
@@ -169,6 +169,7 @@
             this.txbTelefono.Name = "txbTelefono";
             this.txbTelefono.Size = new System.Drawing.Size(209, 26);
             this.txbTelefono.TabIndex = 31;
+            this.txbTelefono.Leave += new System.EventHandler(this.txbTelefono_Leave);
             // 
             // txbCorreo
             // 
