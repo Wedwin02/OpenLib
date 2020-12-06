@@ -505,7 +505,7 @@ namespace CacheManager.CLS
 
             try
             {  
-                Consulta = @"SELECT p.Descripcion,p.MontoTotal,DATE_FORMAT(p.FechaEntrega,'%d/%m/%Y') as Fecha,v.NEmpresa as Empresa FROM  pedidos p, proveedores v WHERE p.IDProveedor=v.IDProveedore;";
+                Consulta = @"SELECT DATE_FORMAT( r.FechaPrevFin,'%d/%m/%Y') as Fecha, r.Titulo, r.Descripcion FROM recordatorio r WHERE EstadoActividad = 'Ejecucion';";
                 Resultado = oConsulta.Consultar(Consulta);
 
             }

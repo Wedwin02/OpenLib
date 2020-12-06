@@ -325,7 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\floppy-disk.png" />
-  </ItemGroup>    
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel_25px.png" />
   </ItemGroup>

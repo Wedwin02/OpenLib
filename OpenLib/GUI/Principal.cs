@@ -17,13 +17,13 @@ namespace OpenLib.GUI
     {
         SessionManager.CLS.Sesion _Seccion = SessionManager.CLS.Sesion.Instancia;
         public String descripcion;
-        public String monto;
+        public String Titulo;
         public String fechaEntrega;
         public String empresa;
         public String cadena = " ";
         public int contador = 0;
         public String date = DateTime.Today.ToString("dd/MM/yyyy");
-
+        PopupNotifier popup = new PopupNotifier();
 
         public void Alerta()
         {
@@ -34,20 +34,18 @@ namespace OpenLib.GUI
             {
 
                 this.descripcion = _Alerta.Rows[i]["Descripcion"].ToString();
-                this.monto = _Alerta.Rows[i]["MontoTotal"].ToString();
+                this.Titulo = _Alerta.Rows[i]["Titulo"].ToString();
                 this.fechaEntrega = _Alerta.Rows[i]["Fecha"].ToString();
-                this.empresa = _Alerta.Rows[i]["Empresa"].ToString();
+                
 
-               // if(date.ToString().Trim() == fechaEntrega.ToString().Trim())
-              //  {
-                    this.cadena += "Descripcion de la compra hecha: " + descripcion + " Por un monto de $: " + monto + " de la empresa: " + empresa + Environment.NewLine; ;
-               // }              
+                if(date.ToString().Trim() == fechaEntrega.ToString().Trim())
+                {
+                    this.cadena += "Titulo: "+Titulo+" Descripción: "+descripcion + Environment.NewLine; ;
+                }              
                
             }
-            if (ValidarDiaAlerta())
-            {
-                //if(cadena.Length <= 0) { 
-                PopupNotifier popup = new PopupNotifier();
+               
+                
                 popup.Image = Properties.Resources.icons8_notification_45px;
                 popup.TitleText = "RECORDATORIOS " + date;                
                 popup.ContentText = this.cadena;                
@@ -60,41 +58,23 @@ namespace OpenLib.GUI
                 popup.AnimationDuration = 1000;
                 popup.AnimationInterval = 1;
                 popup.HeaderHeight = 15;
-                popup.Size = new Size(600,300);
+                popup.Size = new Size(600,300);               
+                
+
+            if(cadena.Length > 1)
+            {
                 popup.Popup();
-              //  }
-
-            }
+            }        
 
 
         }
 
-       public Boolean ValidarDiaAlerta()
-        {
-            Boolean respuesta =true;
-            
-
-            
-            String a = "Admin";
-
-            if(_Seccion.Informacion.Rol.ToString().Equals(a))
-            {
-                respuesta = true;
-            }
-            else
-            {
-                respuesta = false;
-            }
-
-
-            return respuesta;
-
-        }
-
+      
+     
+    
         public Principal()
         {
-            InitializeComponent();
-        
+            InitializeComponent();    
 
 
         }  
