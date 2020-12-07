@@ -11,7 +11,37 @@ using System.Windows.Forms;
 namespace General.GUI.Proveedores
 {
     public partial class ProveedoresEdicion : Form
-    {   
+    {
+        private void ordenarTexBox()
+        {
+            //ordenando para recibir tabulacion
+           
+            txbNombre.TabIndex = 0;
+            txbCorreo.TabIndex = 1;
+            txbTelefono.TabIndex = 2;
+            txbDireccion.TabIndex = 3;
+            btnGuardar.TabIndex = 4;
+            btnCancelar.TabIndex = 5;
+        }
+
+        private void PhoneLength()
+        {
+
+            if (txbTelefono.TextLength > 9)
+            {
+
+                MessageBox.Show("El campo no puede tener mas de 9 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbTelefono.Focus();
+
+            }
+            else if (txbTelefono.TextLength < 9)
+            {
+                MessageBox.Show("El campo no puede tener menos de 9 caracteres", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbTelefono.Focus();
+
+            }
+        }
+
         private Boolean VerificarDatos()
         {
             Boolean Verificado = true;
@@ -77,6 +107,13 @@ namespace General.GUI.Proveedores
         public ProveedoresEdicion()
         {
             InitializeComponent();
+            ordenarTexBox();
+            
+
+        }
+        private void txbTelefono_Leave(object sender, EventArgs e)
+        {
+            PhoneLength();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

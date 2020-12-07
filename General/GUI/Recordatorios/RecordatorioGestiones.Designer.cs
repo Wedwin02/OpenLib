@@ -59,7 +59,7 @@
             // 
             this.dtgRecordatorios.AllowUserToAddRows = false;
             this.dtgRecordatorios.AllowUserToDeleteRows = false;
-            this.dtgRecordatorios.AllowUserToResizeColumns = false;
+            this.dtgRecordatorios.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.dtgRecordatorios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgRecordatorios.BackgroundColor = System.Drawing.SystemColors.Control;
