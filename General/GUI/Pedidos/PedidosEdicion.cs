@@ -132,7 +132,8 @@ namespace General.GUI.Pedidos
             this.lblTotalNumDetalles.Text = Convert.ToString(contador);
 
             ColorSelected(idFilter);
-            if(contador > 0)
+
+            if(contador > 0 && ! currentControlItemSelected.Estado.Equals("ENVIADO"))
             {
                 btnDelDetallePedido.Enabled = true;
             }
@@ -147,6 +148,16 @@ namespace General.GUI.Pedidos
         {
             this.idPedidoSelected = IdPedido;
             this.currentControlItemSelected = itemSelected;
+
+
+            if (itemSelected.TotalProductos == 0 && !itemSelected.Estado.Equals("ENVIADO"))
+            {
+                button4.Enabled = false;
+            }
+            else
+            {
+                button4.Enabled = true;
+            }
 
             if (itemSelected.Estado.Equals("ENVIADO"))
             {
@@ -163,14 +174,7 @@ namespace General.GUI.Pedidos
                 button1.Enabled = true;
             }
 
-            if(itemSelected.TotalProductos == 0)
-            {
-                button4.Enabled = false;
-            }
-            else
-            {
-                button4.Enabled = true;
-            }
+
 
             //Refrescar 
             RefrestDataGridView(this.idPedidoSelected);
@@ -264,8 +268,9 @@ namespace General.GUI.Pedidos
 
             HTMLContent += "<div style='width: 100%; max-width: 700px; margin: auto;'>";
             HTMLContent += "<h1 style='text-align: center;'>Detalles de Pedido</h1>";
-            HTMLContent += "<small style='display: block; text-align: center; '>Lorem ipsum dolor sit amet, consectetur adipiscing elit</small>";
-            HTMLContent += "<small style='display: block; text-align: center;margin-bottom: 20px;'> sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</small>";
+            HTMLContent += "<small style='display: block; text-align: center;'>Estimado contribuyente, en caso de presentar algún inconveniente</small>";
+            HTMLContent += "<small style='display: block; text-align: center;'> para suministrar total o parcialmente el pedido, </small>";
+            HTMLContent += "<small style='display: block; text-align: center;margin-bottom: 20px;'> por favor comunicarse con nuestra agencia al teléfono: 2067-1367. </small>";
             HTMLContent += "<table border='0px' style='width: 100%;   border: 1px solid #B5B5B5; border-radius: 13px;  border-spacing: 0; text-align: center; overflow: hidden;'>";
             HTMLContent += "<thead style='background-color: #242444;'><tr>";
             HTMLContent += "<th style='color: white;'>#</th><th style='color: white;'>DESCRIPCION PRODUCTO</th><th style='color: white;'>SOLICITADO</th>";
