@@ -178,6 +178,44 @@ namespace CacheManager.CLS
             return base64;
         }
 
+        public static String getEmailByProveedor(int idProveedor)
+        {
+            String email = null;
+            DataTable Resultado = new DataTable();
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {
+                String sql = String.Format("select p2.CorreoElectronico as email from pedidos p inner join proveedores p2 on p.IDProveedor = p2.IDProveedore where IDPedido = {0}",idProveedor);
+                Resultado = oConsulta.Consultar(sql);
+                email = Resultado.Rows[0]["email"].ToString();
+            }catch(Exception ex)
+            {
+                email = null;
+            }
+
+            return email;
+        }
+
+        public static int DescontarCantidadStock(int idPedido,int minus)
+        {
+            int k = 0;
+            DataTable Resultado = new DataTable();
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {
+                String sql = String.Format("update pedidos p set p.NumProductos  =  (p.NumProductos - {0}) where p.IDPedido = {1};", minus,idPedido);
+                k = oConsulta.Eliminar(sql);
+            }
+            catch (Exception ex)
+            {
+                k = 0;
+            }
+
+            return k;
+        }
+
         public static DataTable ALL_SALES()
         {
             DataTable Resultado = new DataTable();
@@ -371,7 +409,7 @@ namespace CacheManager.CLS
             return Resultado;
         }
 
-        public static DataTable ALL_PEDIDOS_DISPLAY()
+        public static DataTable ALL_PEDIDOS_DISPLAY(String pEstado)
         {
             DataTable Resultado = new DataTable();
             String Consulta;
@@ -380,7 +418,13 @@ namespace CacheManager.CLS
             try
             {
                 Consulta = @"select p.IDPedido,date_format(p.FechaEmision,'%d/%m/%Y') as FechaEmision,date_format(p.FechaEntrega,'%d/%m/%Y') as FechaEstimada,p.Estado,p2.NombreProveedor,p2.CorreoElectronico,p.NumProductos 
+                            from pedidos p inner join proveedores p2 on P.IDProveedor = P2.IDProveedore where p.Estado ='" + pEstado + "';";
+
+                if (pEstado.Trim().Equals("TODOS"))
+                {
+                    Consulta = @"select p.IDPedido,date_format(p.FechaEmision,'%d/%m/%Y') as FechaEmision,date_format(p.FechaEntrega,'%d/%m/%Y') as FechaEstimada,p.Estado,p2.NombreProveedor,p2.CorreoElectronico,p.NumProductos 
                             from pedidos p inner join proveedores p2 on P.IDProveedor = P2.IDProveedore;";
+                }
                 Resultado = oConsulta.Consultar(Consulta);
             }
             catch
@@ -412,6 +456,25 @@ namespace CacheManager.CLS
             return count.ToString();
         }
 
+        public static String TOTAL_PEDIDOS()
+        {
+            String count = String.Empty;
+            DataTable Resultado = new DataTable();
+            String Consulta;
+            DataManager.CLS.DBOperacion oConsulta = new DataManager.CLS.DBOperacion();
+
+            try
+            {
+                Consulta = "select count(*) as Total from pedidos p where p.Estado = 'REVISION';";
+                Resultado = oConsulta.Consultar(Consulta);
+                count = Resultado.Rows[0]["Total"].ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return count;
+        }
         public static Boolean ChangeStatusPedido(int idPedido,String estadoUpdate)
         {
             Boolean estado = false;

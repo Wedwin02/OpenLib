@@ -16,18 +16,21 @@ namespace General.GUI.Pedidos
         private string _lblEstado;
         private string _lblEmision;
         private string _lblProvider;
-        private string _lblTotal;
+        private int TotalProds;
         private Image _Icon;
         private int _idPedido;
         private ContratoUserForm _contrato;
         private Color _bkColor;
         private string _emailSend;
+        private Color _colorGround;
+        private bool _isSelected;
 
 
         public ItemPedido()
         {
             InitializeComponent();
             this._idPedido = 0;
+            this.IsSelected = false;
         }
 
 
@@ -54,10 +57,10 @@ namespace General.GUI.Pedidos
         }
 
         [Category("Custon Props")]
-        public string TotalProductos
+        public int TotalProductos
         {
-            get { return this._lblTotal; }
-            set { this._lblTotal = value; this.lblTotalProductos.Text = value; }
+            get { return this.TotalProds; }
+            set { this.TotalProds = value; this.lblTotalProductos.Text = value + " Productos Solicitados"; }
         }
 
         [Category("Custon Props")]
@@ -84,14 +87,36 @@ namespace General.GUI.Pedidos
 
         public string EmailSend { get => _emailSend; set => _emailSend = value; }
 
+        [Category("Custon Props")]
+        public Color ColorGround 
+        {
+            get { return this._colorGround; }
+            set { 
+                this._colorGround = value;
+                this.tableLayoutPanel1.BackColor = value;
+                this.lblEstado.BackColor = value;
+                //this.lblFechaEmision.BackColor = value;
+                //this.lblProveedor.BackColor = value;
+                //this.lblTotalProductos.BackColor = value;
+            }
+        }
+
+        public bool IsSelected { get => _isSelected; set => _isSelected = value; }
+
         private void tableLayoutPanel1_MouseEnter(object sender, EventArgs e)
         {
             this.tableLayoutPanel1.BackColor = Color.Silver;
+            this.lblEstado.BackColor = Color.Silver;
         }
 
         private void tableLayoutPanel1_MouseLeave(object sender, EventArgs e)
         {
-            this.tableLayoutPanel1.BackColor = Color.Gainsboro;
+            if(! IsSelected)
+            {
+                this.tableLayoutPanel1.BackColor = Color.Gainsboro;
+                this.lblEstado.BackColor = Color.Gainsboro;
+            }
+            
         }
 
         private void onClickShowDetails(object sender, EventArgs e)

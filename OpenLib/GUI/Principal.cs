@@ -112,6 +112,7 @@ namespace OpenLib.GUI
         {
             lblActividades.Text = CacheManager.CLS.Cache.COUNT_ACTIVE_RECORDATORIOS();
             lblTodaySales.Text = "$ " + CacheManager.CLS.Cache.TODAY_SALES();
+            lblTotalPedidos.Text = CacheManager.CLS.Cache.TOTAL_PEDIDOS();
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
@@ -184,6 +185,7 @@ namespace OpenLib.GUI
         {
             General.GUI.Pedidos.PedidosEdicion frmPedidos = new General.GUI.Pedidos.PedidosEdicion();
             frmPedidos.ShowDialog();
+            CargarProcesos();
         }
         private void btnCerrarSession(object sender, EventArgs e)
         {

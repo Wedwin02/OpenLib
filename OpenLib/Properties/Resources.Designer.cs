@@ -223,9 +223,29 @@ namespace OpenLib.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pnlPedidosSend {
+            get {
+                object obj = ResourceManager.GetObject("pnlPedidosSend", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pnlProductos {
             get {
                 object obj = ResourceManager.GetObject("pnlProductos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pnlProviders {
+            get {
+                object obj = ResourceManager.GetObject("pnlProviders", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
