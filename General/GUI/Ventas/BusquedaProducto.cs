@@ -126,9 +126,20 @@ namespace General.GUI.Ventas
 
         private void txbCantidad_TextChanged(object sender, EventArgs e)
         {
-            if (dtgDatos.SelectedRows.Count > 0 && verificarStock())
+
+
+            if (this.isSale)
             {
-                CalculosSelected();
+                if (dtgDatos.SelectedRows.Count > 0 && verificarStock())
+                {
+                    CalculosSelected();
+                }
+            }else
+            {
+                if (dtgDatos.SelectedRows.Count > 0)
+                {
+                    CalculosSelected();
+                }
             }
                     
         }
