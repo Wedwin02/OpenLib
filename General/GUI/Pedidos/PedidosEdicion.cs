@@ -27,14 +27,22 @@ namespace General.GUI.Pedidos
             idPedidoSelected = 0;
             changeSaved = true;
             currentControlItemSelected = null;
+
+            comboBoxFiltro.Items.Add("TODOS");
+            comboBoxFiltro.Items.Add("ENVIADOS");
+            comboBoxFiltro.Items.Add("ALMACENADOS");
+            comboBoxFiltro.SelectedIndex = 0;
         }
 
 
-        private void Cargar()
+        private void Cargar(String pEstado)
         {
             try
             {
-                _DATOS = CacheManager.CLS.Cache.ALL_PEDIDOS_DISPLAY();
+                _DATOS = CacheManager.CLS.Cache.ALL_PEDIDOS_DISPLAY(pEstado);
+
+                this.flowLayoutPanel1.Controls.Clear();
+                this.flowLayoutPanel1.Refresh();
 
                 for (int i = 0; i < _DATOS.Rows.Count; i++) {
                     ItemPedido e3 = new ItemPedido();
@@ -44,7 +52,7 @@ namespace General.GUI.Pedidos
                     e3.idPedido = Convert.ToInt32(_DATOS.Rows[i]["IDPedido"].ToString());
                     e3.Width = flowLayoutPanel1.Width - 10;
                     e3.Proveedor = "Proveedor | "+_DATOS.Rows[i]["NombreProveedor"].ToString();
-                    e3.TotalProductos = _DATOS.Rows[i]["NumProductos"].ToString() + " Productos Solicitados";
+                    e3.TotalProductos = Convert.ToInt32(_DATOS.Rows[i]["NumProductos"].ToString());
                     e3.EmailSend = _DATOS.Rows[i]["CorreoElectronico"].ToString();
                     e3.Contrato = this;
 
@@ -76,7 +84,7 @@ namespace General.GUI.Pedidos
 
         private void PedidosEdicion_Load(object sender, EventArgs e)
         {
-            Cargar();
+            Cargar("TODOS");
         }
 
         private void btnCreatePedido_Click(object sender, EventArgs e)
@@ -89,14 +97,17 @@ namespace General.GUI.Pedidos
                 it.idPedido = Convert.ToInt32(formCreate.PedidoData.IdPedido);
                 it.Estado = formCreate.PedidoData.Estado;
                 it.FechaEmision = "Emision / " + formCreate.PedidoData.FechaEmision;
-                it.idPedido = Convert.ToInt32(formCreate.PedidoData.IdPedido);
                 it.Width = flowLayoutPanel1.Width - 10;
                 it.Proveedor = "Proveedor | " + formCreate.ProviderText;
-                it.TotalProductos = formCreate.PedidoData.NumProductSolicitados + " Productos Solicitados";
+                it.TotalProductos = Convert.ToInt32(formCreate.PedidoData.NumProductSolicitados);
                 it.Contrato = this;
                 it.BkColor = System.Drawing.ColorTranslator.FromHtml("#f39c11");
+                it.EmailSend = CacheManager.CLS.Cache.getEmailByProveedor(it.idPedido);
                 this.flowLayoutPanel1.Controls.Add(it);
+                //this.currentControlItemSelected = it;
+                RefreshItems(it.idPedido, it);
             }
+
         }
 
         public void RefrestDataGridView(int idFilter) 
@@ -120,6 +131,16 @@ namespace General.GUI.Pedidos
 
             this.lblTotalNumDetalles.Text = Convert.ToString(contador);
 
+            ColorSelected(idFilter);
+            if(contador > 0)
+            {
+                btnDelDetallePedido.Enabled = true;
+            }
+            else 
+            {
+                btnDelDetallePedido.Enabled = false;
+            }
+
         }
 
         public void RefreshItems(int IdPedido,ItemPedido itemSelected)
@@ -140,6 +161,15 @@ namespace General.GUI.Pedidos
                 btnDelDetallePedido.Enabled = true;
                 button4.Enabled = true;
                 button1.Enabled = true;
+            }
+
+            if(itemSelected.TotalProductos == 0)
+            {
+                button4.Enabled = false;
+            }
+            else
+            {
+                button4.Enabled = true;
             }
 
             //Refrescar 
@@ -247,31 +277,30 @@ namespace General.GUI.Pedidos
             HTMLContent += "</div>";
 
             string destino = currentControlItemSelected.EmailSend;
-            //Preparacion mensaje 
-            System.Net.Mail.MailMessage mensaje = new System.Net.Mail.MailMessage();
-            mensaje.To.Add(destino); //para quien va dirigido
-            mensaje.Subject = "Notificacion de Nuevo Pedido";
-            mensaje.SubjectEncoding = System.Text.Encoding.UTF8;
-
-            mensaje.Body = HTMLContent;
-            mensaje.BodyEncoding = System.Text.Encoding.UTF8;
-            mensaje.IsBodyHtml = true;
-            mensaje.From = new System.Net.Mail.MailAddress("openlib.inc@gmail.com");
-
-
-            //Cliente Correo 
-            System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
-            cliente.EnableSsl = true;
-            cliente.UseDefaultCredentials = false;
-            cliente.Credentials = new System.Net.NetworkCredential("openlib.inc@gmail.com", "q7WGrTaeu3LHuz7");
-            cliente.Port = 587;
-            cliente.Host = "smtp.gmail.com";
-            cliente.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
-
-
             //Logica de Ejecucion 
             try
             {
+                //Preparacion mensaje 
+                System.Net.Mail.MailMessage mensaje = new System.Net.Mail.MailMessage();
+                mensaje.To.Add(destino); //para quien va dirigido
+                mensaje.Subject = "Notificacion de Nuevo Pedido";
+                mensaje.SubjectEncoding = System.Text.Encoding.UTF8;
+
+                mensaje.Body = HTMLContent;
+                mensaje.BodyEncoding = System.Text.Encoding.UTF8;
+                mensaje.IsBodyHtml = true;
+                mensaje.From = new System.Net.Mail.MailAddress("openlib.inc@gmail.com");
+
+
+                //Cliente Correo 
+                System.Net.Mail.SmtpClient cliente = new System.Net.Mail.SmtpClient();
+                cliente.EnableSsl = true;
+                cliente.UseDefaultCredentials = false;
+                cliente.Credentials = new System.Net.NetworkCredential("openlib.inc@gmail.com", "q7WGrTaeu3LHuz7");
+                cliente.Port = 587;
+                cliente.Host = "smtp.gmail.com";
+                cliente.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+
                 cliente.Send(mensaje);
                 
                 Boolean enviadoEstado = CacheManager.CLS.Cache.ChangeStatusPedido(idPedidoSelected, "ENVIADO");
@@ -344,22 +373,107 @@ namespace General.GUI.Pedidos
             //Agui Guardar la cantidad de los productos 
             CacheManager.CLS.Cache.UPDATE_TOTAL_NUM_PEDIDOS(idPedidoSelected,contador);
 
-            this.currentControlItemSelected.TotalProductos = contador + " Productos Solicitados";
+            this.currentControlItemSelected.TotalProductos = contador;
             this.changeSaved = true;
             this.btnSaveChange.Enabled = false;
+
+            if (this.currentControlItemSelected.TotalProductos == 0)
+            {
+                button4.Enabled = false;
+            }
+            else
+            {
+                button4.Enabled = true;
+            }
+
         }
 
         private void btnDelDetallePedido_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Estoy entrando", "Informe Test", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Console.WriteLine("Me estan dando click");
-
+            
             if (currentControlItemSelected == null) {
-                Console.WriteLine("Esta nulo");
+                MessageBox.Show("No ha selecionado ningun pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            Console.WriteLine("No esta nulo");
-            currentControlItemSelected.Estado = "Actualizado";
+
+            if(MessageBox.Show("¿Realmente desea eliminar el producto del pedido?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DetallePedido dp = new DetallePedido();
+                String tempId = dtgCurrentDetails.CurrentRow.Cells["idDetalle"].Value.ToString();
+                dp.IdDetalle = tempId;
+
+                if(tempId.Trim().Equals("0"))
+                {
+                    dtgCurrentDetails.Rows.RemoveAt(dtgCurrentDetails.CurrentRow.Index);
+                    return;
+                }
+
+                int cantidad = Convert.ToInt32(dtgCurrentDetails.CurrentRow.Cells["Cantidad"].Value.ToString());
+                if (dp.Eliminar())
+                {
+                    RefrestDataGridView(this.currentControlItemSelected.idPedido);
+                    int rowAffected = CacheManager.CLS.Cache.DescontarCantidadStock(currentControlItemSelected.idPedido,1);
+
+                    if(rowAffected > 0)
+                    {
+                        currentControlItemSelected.TotalProductos = currentControlItemSelected.TotalProductos - 1;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No ha podido eliminar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void ColorSelected(int idPedidoSelected) 
+        {
+            for (int i = 0; i < this.flowLayoutPanel1.Controls.Count; i++)
+            {
+                int compare = ((ItemPedido)this.flowLayoutPanel1.Controls[i]).idPedido;
+                if (compare == idPedidoSelected)
+                {
+                    ((ItemPedido)this.flowLayoutPanel1.Controls[i]).ColorGround = Color.Silver;
+                    ((ItemPedido)this.flowLayoutPanel1.Controls[i]).IsSelected = true;
+                }
+                else
+                {
+                    ((ItemPedido)this.flowLayoutPanel1.Controls[i]).ColorGround = Color.Gainsboro;
+                    ((ItemPedido)this.flowLayoutPanel1.Controls[i]).IsSelected = false;
+                }
+            }
+        }
+
+        private void comboBoxFiltro_SelectedValueChanged(object sender, EventArgs e)
+        {
+            String valorFiltro = comboBoxFiltro.SelectedItem.ToString();
+
+
+            switch (valorFiltro)
+            {
+                case "ENVIADOS":
+                    {
+                        Cargar("ENVIADO");
+                    }
+                    break;
+                case "ALMACENADOS":
+                    {
+                        Cargar("REVISION");
+                    }
+                    break;
+                default:
+                    {
+                        Cargar("TODOS");
+                    }
+                    break;
+            }
+
         }
     }
 }

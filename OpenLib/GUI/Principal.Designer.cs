@@ -53,7 +53,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalPedidos = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,18 +77,17 @@
             // 
             // statusStrip1
             // 
-            //this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblRol,
             this.lblUsuario,
             this.toolStripSplitButton1,
             this.btnCerrar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 494);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(924, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1348, 32);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
-          
             // 
             // lblRol
             // 
@@ -114,7 +113,7 @@
             this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(0, 24);
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(0, 26);
             this.toolStripSplitButton1.Text = "Cerrar Sessión";
             // 
             // btnCerrar
@@ -122,7 +121,7 @@
             this.btnCerrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(37, 24);
+            this.btnCerrar.Size = new System.Drawing.Size(44, 26);
             this.btnCerrar.Text = "Salir";
             this.btnCerrar.Visible = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrarSession);
@@ -154,7 +153,7 @@
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPedidos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedidos.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnPedidos.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
+            this.btnPedidos.Image = global::OpenLib.Properties.Resources.pnlPedidosSend;
             this.btnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPedidos.Location = new System.Drawing.Point(16, 341);
             this.btnPedidos.Margin = new System.Windows.Forms.Padding(4);
@@ -173,7 +172,7 @@
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedores.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnProveedores.Image = global::OpenLib.Properties.Resources.pnlRecordatorios;
+            this.btnProveedores.Image = global::OpenLib.Properties.Resources.pnlProviders;
             this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedores.Location = new System.Drawing.Point(16, 279);
             this.btnProveedores.Margin = new System.Windows.Forms.Padding(4);
@@ -397,7 +396,7 @@
             this.lblTodaySales.Name = "lblTodaySales";
             this.lblTodaySales.Size = new System.Drawing.Size(335, 54);
             this.lblTodaySales.TabIndex = 0;
-            this.lblTodaySales.Text = "$ 250.36";
+            this.lblTodaySales.Text = "00.00";
             this.lblTodaySales.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel3
@@ -405,7 +404,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblTotalPedidos);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(360, 16);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -438,18 +437,18 @@
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
-            // label2
+            // lblTotalPedidos
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 88);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(335, 54);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "6";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblTotalPedidos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblTotalPedidos.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPedidos.ForeColor = System.Drawing.Color.White;
+            this.lblTotalPedidos.Location = new System.Drawing.Point(0, 88);
+            this.lblTotalPedidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPedidos.Name = "lblTotalPedidos";
+            this.lblTotalPedidos.Size = new System.Drawing.Size(335, 54);
+            this.lblTotalPedidos.TabIndex = 1;
+            this.lblTotalPedidos.Text = "0";
+            this.lblTotalPedidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel4
             // 
@@ -607,7 +606,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTodaySales;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalPedidos;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblActividades;
         private System.Windows.Forms.PictureBox pictureBox3;

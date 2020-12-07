@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dtgCurrentDetails = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTotalNumDetalles = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSaveChange = new System.Windows.Forms.Button();
-            this.btnDelDetallePedido = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCreatePedido = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.idDetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotalNumDetalles = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSaveChange = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btnDelDetallePedido = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
+            this.btnCreatePedido = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -107,14 +107,14 @@
             this.dtgCurrentDetails.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dtgCurrentDetails.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgCurrentDetails.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgCurrentDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgCurrentDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgCurrentDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCurrentDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDetalle,
@@ -132,6 +132,38 @@
             this.dtgCurrentDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgCurrentDetails.Size = new System.Drawing.Size(583, 534);
             this.dtgCurrentDetails.TabIndex = 0;
+            // 
+            // idDetalle
+            // 
+            this.idDetalle.HeaderText = "idDetalle";
+            this.idDetalle.MinimumWidth = 6;
+            this.idDetalle.Name = "idDetalle";
+            this.idDetalle.ReadOnly = true;
+            this.idDetalle.Visible = false;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.DataPropertyName = "Cantidad";
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.MinimumWidth = 6;
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.DataPropertyName = "IDProducto";
+            this.IDProducto.HeaderText = "IDProducto";
+            this.IDProducto.MinimumWidth = 6;
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            this.IDProducto.Visible = false;
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
             // 
             // panel4
             // 
@@ -164,7 +196,7 @@
             this.lblTotalNumDetalles.Name = "lblTotalNumDetalles";
             this.lblTotalNumDetalles.Size = new System.Drawing.Size(125, 33);
             this.lblTotalNumDetalles.TabIndex = 0;
-            this.lblTotalNumDetalles.Text = "23";
+            this.lblTotalNumDetalles.Text = "0";
             this.lblTotalNumDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -177,6 +209,23 @@
             this.label2.Size = new System.Drawing.Size(200, 23);
             this.label2.TabIndex = 6;
             this.label2.Text = "Opciones de Detalle";
+            // 
+            // btnSaveChange
+            // 
+            this.btnSaveChange.Enabled = false;
+            this.btnSaveChange.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnSaveChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveChange.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveChange.Image = global::General.Properties.Resources.floppy_disk;
+            this.btnSaveChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveChange.Location = new System.Drawing.Point(296, 32);
+            this.btnSaveChange.Name = "btnSaveChange";
+            this.btnSaveChange.Size = new System.Drawing.Size(149, 49);
+            this.btnSaveChange.TabIndex = 5;
+            this.btnSaveChange.Text = "Guardar";
+            this.btnSaveChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSaveChange.UseVisualStyleBackColor = true;
+            this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
             // 
             // button6
             // 
@@ -194,6 +243,23 @@
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // btnDelDetallePedido
+            // 
+            this.btnDelDetallePedido.Enabled = false;
+            this.btnDelDetallePedido.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnDelDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelDetallePedido.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelDetallePedido.Image = global::General.Properties.Resources.delete;
+            this.btnDelDetallePedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelDetallePedido.Location = new System.Drawing.Point(159, 32);
+            this.btnDelDetallePedido.Name = "btnDelDetallePedido";
+            this.btnDelDetallePedido.Size = new System.Drawing.Size(131, 49);
+            this.btnDelDetallePedido.TabIndex = 1;
+            this.btnDelDetallePedido.Text = "Eliminar";
+            this.btnDelDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelDetallePedido.UseVisualStyleBackColor = true;
+            this.btnDelDetallePedido.Click += new System.EventHandler(this.btnDelDetallePedido_Click);
             // 
             // panel2
             // 
@@ -220,7 +286,7 @@
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.comboBox1);
+            this.panel3.Controls.Add(this.comboBoxFiltro);
             this.panel3.Controls.Add(this.btnCreatePedido);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -228,6 +294,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(602, 89);
             this.panel3.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::General.Properties.Resources.edit;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(145, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Editar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -248,64 +331,15 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Opciones de Pedido";
             // 
-            // comboBox1
+            // comboBoxFiltro
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Schoolbook", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(405, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 30);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // btnSaveChange
-            // 
-            this.btnSaveChange.Enabled = false;
-            this.btnSaveChange.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnSaveChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveChange.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChange.Image = global::General.Properties.Resources.floppy_disk;
-            this.btnSaveChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveChange.Location = new System.Drawing.Point(296, 32);
-            this.btnSaveChange.Name = "btnSaveChange";
-            this.btnSaveChange.Size = new System.Drawing.Size(149, 49);
-            this.btnSaveChange.TabIndex = 5;
-            this.btnSaveChange.Text = "Guardar";
-            this.btnSaveChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveChange.UseVisualStyleBackColor = true;
-            this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
-            // 
-            // btnDelDetallePedido
-            // 
-            this.btnDelDetallePedido.Enabled = false;
-            this.btnDelDetallePedido.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnDelDetallePedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelDetallePedido.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelDetallePedido.Image = global::General.Properties.Resources.delete;
-            this.btnDelDetallePedido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelDetallePedido.Location = new System.Drawing.Point(159, 32);
-            this.btnDelDetallePedido.Name = "btnDelDetallePedido";
-            this.btnDelDetallePedido.Size = new System.Drawing.Size(131, 49);
-            this.btnDelDetallePedido.TabIndex = 1;
-            this.btnDelDetallePedido.Text = "Eliminar";
-            this.btnDelDetallePedido.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelDetallePedido.UseVisualStyleBackColor = true;
-            this.btnDelDetallePedido.Click += new System.EventHandler(this.btnDelDetallePedido_Click);
-            // 
-            // button1
-            // 
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::General.Properties.Resources.edit;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(145, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 49);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Editar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.comboBoxFiltro.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(405, 45);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(168, 31);
+            this.comboBoxFiltro.TabIndex = 4;
+            this.comboBoxFiltro.SelectedValueChanged += new System.EventHandler(this.comboBoxFiltro_SelectedValueChanged);
             // 
             // btnCreatePedido
             // 
@@ -340,38 +374,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // idDetalle
-            // 
-            this.idDetalle.HeaderText = "idDetalle";
-            this.idDetalle.MinimumWidth = 6;
-            this.idDetalle.Name = "idDetalle";
-            this.idDetalle.ReadOnly = true;
-            this.idDetalle.Visible = false;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.DataPropertyName = "Cantidad";
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.MinimumWidth = 6;
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // IDProducto
-            // 
-            this.IDProducto.DataPropertyName = "IDProducto";
-            this.IDProducto.HeaderText = "IDProducto";
-            this.IDProducto.MinimumWidth = 6;
-            this.IDProducto.Name = "IDProducto";
-            this.IDProducto.ReadOnly = true;
-            this.IDProducto.Visible = false;
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            // 
             // PedidosEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -383,7 +385,7 @@
             this.MaximizeBox = false;
             this.Name = "PedidosEdicion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PedidosEdicion";
+            this.Text = "Envio de Pedidos";
             this.Load += new System.EventHandler(this.PedidosEdicion_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -415,7 +417,7 @@
         private System.Windows.Forms.Button btnSaveChange;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblTotalNumDetalles;
         private System.Windows.Forms.Label label2;

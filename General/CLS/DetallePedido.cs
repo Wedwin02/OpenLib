@@ -72,15 +72,20 @@ namespace General.CLS
         public Boolean Eliminar()
         {
             Boolean estado = false;
-            String Sentencia;
+            String Sentencia = "";
             DataManager.CLS.DBOperacion Operacion = new DataManager.CLS.DBOperacion();
             try
             {
-
+                Sentencia = "delete from detallespedidos ";
+                Sentencia += "where idDetalle = " + _idDetalle;
+                if (Operacion.Eliminar(Sentencia) > 0)
+                {
+                    estado = true;
+                }
             }
             catch
             {
-
+                estado = false;
             }
             return estado;
         }
